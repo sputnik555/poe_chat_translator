@@ -5,15 +5,15 @@ translator = Translator()
 
 
 if __name__ == '__main__':
-    line_count = -1
+    max_index = -1
     while True:
         lines = []
-        i = 0
+        index = -1
         with open('D:\Games\PoE\logs\Client.txt', 'r', encoding='utf-8') as file:
-            for i, x in enumerate(file):
-                if i > line_count > -1:
-                    lines.append(x)
-        line_count = i
+            for index, line in enumerate(file):
+                if index > max_index > -1:
+                    lines.append(line)
+        max_index = index
         for line in lines:
             message_start_index = line.find('@From')
             is_message_from_trade = "Hi, I'd like to buy your" in line \
